@@ -1,5 +1,3 @@
-// GameCanvas.jsx
-
 import { useEffect, useRef } from 'react';
 
 const CANVAS_WIDTH = 500;
@@ -10,7 +8,7 @@ const PADDLE_DIFF = 25;
 const BALL_RADIUS = 5;
 const BALL_START_X = CANVAS_WIDTH / 2;
 const BALL_START_Y = CANVAS_HEIGHT / 2;
-const INITIAL_SPEED_Y = -3;
+const INITIAL_SPEED_Y = -2;
 const MAX_SPEED_Y = 5;
 const MIN_SPEED_Y = -5;
 const COMPUTER_SPEED_INCREMENT = 0.3;
@@ -199,7 +197,8 @@ function GameCanvas({ onGameOver }) {
   }
 
   function computerAI() {
-    let maxPaddleShift = 3 + Math.floor(computerScore / PADDLE_MOVEMENT_INCREMENT);
+    let maxPaddleShift =
+      computerSpeed + Math.floor(computerScore / PADDLE_MOVEMENT_INCREMENT);
 
     if (playerMoved) {
       const targetPosition = ballX - PADDLE_DIFF;
