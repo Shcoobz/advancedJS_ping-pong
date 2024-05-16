@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
 const CANVAS_WIDTH = 500;
 const CANVAS_HEIGHT = 700;
@@ -122,6 +123,7 @@ function GameCanvas({ onGameOver }) {
     ballX = BALL_START_X;
     ballY = BALL_START_Y;
     speedY = INITIAL_SPEED_Y;
+    speedX = 0;
   }
 
   function ballMove() {
@@ -248,5 +250,9 @@ function GameCanvas({ onGameOver }) {
 
   return <canvas ref={canvasRef} width={CANVAS_WIDTH} height={CANVAS_HEIGHT} />;
 }
+
+GameCanvas.propTypes = {
+  onGameOver: PropTypes.func.isRequired,
+};
 
 export default GameCanvas;
