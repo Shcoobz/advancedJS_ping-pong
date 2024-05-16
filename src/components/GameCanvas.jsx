@@ -1,3 +1,5 @@
+// GameCanvas.jsx
+
 import { useEffect, useRef } from 'react';
 
 const CANVAS_WIDTH = 500;
@@ -34,32 +36,25 @@ function GameCanvas({ onGameOver }) {
   let paddleContact = false;
   let isGameOver = false;
 
+  const isMobile = window.matchMedia('(max-width: 600px)');
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
     contextRef.current = context;
 
-    const isMobile = window.matchMedia('(max-width: 600px)');
-    adjustSettingsForMobile(isMobile);
-
+    adjustSettingsForMobile();
     ballReset();
     renderCanvas();
+    setupEventListeners();
     animate();
-
-    const handleMouseMove = (e) => {
-      playerMoved = true;
-      paddleBottomX = e.clientX - canvas.offsetLeft - PADDLE_DIFF;
-      paddleBottomX = Math.max(0, Math.min(CANVAS_WIDTH - PADDLE_WIDTH, paddleBottomX));
-    };
-
-    canvas.addEventListener('mousemove', handleMouseMove);
 
     return () => {
       canvas.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
-  function adjustSettingsForMobile(isMobile) {
+  function adjustSettingsForMobile() {
     if (isMobile.matches) {
       speedY = -2;
       speedX = speedY;
@@ -235,8 +230,21 @@ function GameCanvas({ onGameOver }) {
     gameOver();
 
     if (!isGameOver) {
-      requestAnimationFrame(animate);
+      window.requestAnimationFrame(animate);
     }
+  }
+
+  function setupEventListeners() {
+    canvasRef.current.removeEventListener('mousemove', handleMouseMove);
+    canvasRef.current.addEventListener('mousemove', handleMouseMove);
+    canvasRef.current.style.cursor = 'none';
+  }
+
+  function handleMouseMove(e) {
+    playerMoved = true;
+    paddleBottomX =
+      e.clientX - canvasRef.current.getBoundingClientRect().left - PADDLE_DIFF;
+    paddleBottomX = Math.max(0, Math.min(CANVAS_WIDTH - PADDLE_WIDTH, paddleBottomX));
   }
 
   return <canvas ref={canvasRef} width={CANVAS_WIDTH} height={CANVAS_HEIGHT} />;

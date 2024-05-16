@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import GameCanvas from './components/GameCanvas';
-import GameOverScreen from './components/GameOverSCreen';
+import GameOverScreen from './components/GameOverScreen';
 
 function App() {
   const [isGameOver, setIsGameOver] = useState(false);
