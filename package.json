@@ -1,5 +1,5 @@
 {
-  "name": "react_ping-pong",
+  "name": "advancedJS_ping-pong",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://shcoobz.github.io/react_ping-pong/",
+  "homepage": "https://shcoobz.github.io/advancedJS_ping-pong/",
   "dependencies": {
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

@@ -1,10 +1,10 @@
-# react_Ping Pong: [LIVE DEMO](https://shcoobz.github.io/react_ping-pong/)
+# advancedJS_Ping Pong: [LIVE DEMO](https://shcoobz.github.io/advancedJS_ping-pong/)
 
-![react_Ping Pong](public/img/react_ping-pong.png)
+![advancedJS_Ping Pong](public/img/advancedJS_ping-pong.png)
 
 ## Summary
 
-react_Ping Pong provides a simple yet engaging ping-pong game implemented in React. It features a user-friendly interface and responsive controls, making it easy to play on both desktop and mobile devices.
+advancedJS_Ping Pong provides a simple yet engaging ping-pong game implemented in React. It features a user-friendly interface and responsive controls, making it easy to play on both desktop and mobile devices.
 
 The core functionality includes:
 
@@ -40,6 +40,6 @@ The player's paddle is controlled via mouse movements, providing a responsive an
 
 ---
 
-_Note: This document provides an overview of react_Ping Pong. For detailed instructions and more information, please refer to the source code documentation._
+_Note: This document provides an overview of advancedJS_Ping Pong. For detailed instructions and more information, please refer to the source code documentation._
 
 _This project is a conversion from an earlier version built with vanilla JavaScript and HTML, available [here](https://github.com/Shcoobz/basicJS_ping-pong/). This conversion integrates React to enhance UI reactivity and maintainability._
